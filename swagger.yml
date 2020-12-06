@@ -10,16 +10,19 @@ consumes:
 produces:
     - "application/json"
 
-basePath: '/'
+basePath: "/"
 
 paths:
-  /test:
+  /posts:
     get:
-      summary: Succeeds and Returns some blogposts, for testing.
-      operationId: "blogpost.test"
+      summary: "Currently returns all blogposts, for testing."
+      description: "TODO each call, should return the next bunch of posts, sorted by date."
+      operationId: "blogpost.get_bunch_of_posts"
+      tags:
+          - "Blogposts"
       responses:
-        '200':
-          description: A basic array, for testing
+        "200":
+          description: "A basic array, for testing"
           schema: 
             type: "array"
             items:
@@ -32,3 +35,29 @@ paths:
                   type: "string"
                 creation_timestamp:
                   type: "string"
+    post:
+      summary: "Creates a new blogpost."
+      description: "TODO"
+      operationId: "blogpost.create_new_post"
+      tags:
+          - "Blogposts"
+      parameters:
+        - name: blogpost
+          in: body
+          description: blogpost to create
+          required: True
+          schema:
+            type: object
+            properties:
+              title:
+                description: "title of the new blogpost"
+                type: "string"
+              creator:
+                description: "name of the creator of this blogpost"
+                type: "string"
+              body:
+                description: "body of the blogpost"
+                type: "string"
+      responses:
+        "201":
+          description: "Successful"
