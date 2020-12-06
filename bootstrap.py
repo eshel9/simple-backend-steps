@@ -1,7 +1,6 @@
 import connexion
 import os
 from flask_sqlalchemy import SQLAlchemy
-from flask_marshmallow import Marshmallow
 from configuration import dbname
 
 # variables to export:
@@ -9,15 +8,12 @@ basedir = ""
 flask_app = None
 swagger_app = None
 db = None
-ma = None
-
 
 def initialize_backend():
     global basedir
     global flask_app
     global swagger_app
     global db
-    global ma
 
     basedir = os.path.abspath('.')
 
@@ -30,7 +26,4 @@ def initialize_backend():
     flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     db = SQLAlchemy(flask_app)
-
-    ma = Marshmallow(flask_app)
-
     swagger_app.add_api('swagger.yml')

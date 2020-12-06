@@ -1,5 +1,6 @@
 from datetime import datetime
-from bootstrap import db, ma
+from bootstrap import db
+from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 
 
 class BlogPost(db.Model):
@@ -12,7 +13,8 @@ class BlogPost(db.Model):
     creation_timestamp = db.Column(db.String, default=datetime.utcnow)
     
 
-class BlogPostSchema(ma.SQLAlchemyAutoSchema):
+class BlogPostSchema(SQLAlchemyAutoSchema):
     class Meta:
         model = BlogPost
-        include_fk = False
+        include_relationships = True
+        load_instance = True

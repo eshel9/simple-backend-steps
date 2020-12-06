@@ -16,7 +16,9 @@ def create_new_post(blogpost):
     Creates new blogpost based on user's request for POST /blogsposts
     """
     schema = BlogPostSchema()
+    print("the json blogpost that came from user is:", blogpost)
     new_blogpost = schema.load(blogpost, session=db.session)
+    print(new_blogpost)
 
     db.session.add(new_blogpost)
     db.session.commit()

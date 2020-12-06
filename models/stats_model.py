@@ -1,4 +1,5 @@
-from bootstrap import db, ma
+from bootstrap import db
+from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 
 
 class RuntimeStats(db.Model):
@@ -10,7 +11,8 @@ class RuntimeStats(db.Model):
     call_times = db.Column(db.Integer)
     
 
-class RuntimeStatsSchema(ma.SQLAlchemyAutoSchema):
+class RuntimeStatsSchema(SQLAlchemyAutoSchema):
     class Meta:
         model = RuntimeStats
         include_fk = False
+        load_instance = True
