@@ -13,28 +13,6 @@ produces:
 basePath: "/"
 
 paths:
-  /posts:
-    get:
-      summary: "Currently returns all blogposts, for testing."
-      description: "TODO each call, should return the next bunch of posts, sorted by date."
-      operationId: "blogpost.get_bunch_of_posts"
-      tags:
-          - "Blogposts"
-      responses:
-        "200":
-          description: "A basic array, for testing"
-          schema: 
-            type: "array"
-            items:
-              properties:
-                title:
-                  type: "string"
-                creator:
-                  type: "string"
-                body:
-                  type: "string"
-                creation_timestamp:
-                  type: "string"
   /post:
     post:
       summary: "Creates a new blogpost."
@@ -62,3 +40,25 @@ paths:
       responses:
         "201":
           description: "Successful"
+  /posts:
+    get:
+      summary: "Currently returns all blogposts, for testing."
+      description: "TODO each call, should return the next bunch of posts, sorted by date."
+      operationId: "blogpost.get_bunch_of_posts"
+      tags:
+          - "Blogposts"
+      responses:
+        "200":
+          description: "A basic array, for testing"
+          schema: 
+            type: "array"
+            items:
+              properties:
+                title:
+                  type: "string"
+                creator:
+                  type: "string"
+                body:
+                  type: "string"
+                creation_timestamp:
+                  type: "string"
