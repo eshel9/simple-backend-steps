@@ -29,20 +29,20 @@ BLOGPOSTS = {
 }
 
 
-# handler for GET blogpost
+# handler for GET /posts
 def get_bunch_of_posts():
     """
-    This function responds to a request for GET /blogsposts
-    
-    :return:        sorted list of blogposts
+    Responds to a request for GET /blogsposts
+    :return:        list of a predetermined size of blogposts, sorted by
+    creation time
     """
     return [BLOGPOSTS[key] for key in sorted(BLOGPOSTS.keys())]
 
 
-# handler for POST blogpost
+# handler for POST /post
 def create_new_post(blogpost):
     """
-    This function responds to a request for POST /blogsposts
+    Creates new blogpost based on user's request for POST /blogsposts
     """
     current_blogpost_id = len(BLOGPOSTS) + 1
 
@@ -54,4 +54,15 @@ def create_new_post(blogpost):
     }
     return make_response(
         f"{current_blogpost_id} successfully created", 201
+    )
+
+
+# handler for GET /postsnumber
+def get_number_of_posts():
+    """
+    Responds to a request for GET /postsnumber
+    :return:        number of posts in the system
+    """
+    return make_response(
+        f"there are currently {len(BLOGPOSTS)} posts in the system", 200
     )

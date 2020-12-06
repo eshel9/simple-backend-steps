@@ -62,3 +62,15 @@ paths:
                   type: "string"
                 creation_timestamp:
                   type: "string"
+  /postsnumber:
+    get:
+      summary: "Returns the total number of posts saved in the system"
+      description: "count number of posts"
+      operationId: "blogpost.get_number_of_posts"
+      tags:
+          - "Statistics"
+      responses:
+        "200":
+          description: "A string describing the total number of posts"
+          schema: 
+            type: "string"
