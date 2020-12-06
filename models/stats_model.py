@@ -10,7 +10,7 @@ class RuntimeStats(db.Model):
     call_times = db.Column(db.Integer)
     
 
-class RuntimeStatsSchema(ma.ModelSchema):
+class RuntimeStatsSchema(ma.Schema):
     class Meta:
         model = RuntimeStats
         sqla_session = db.session

@@ -12,7 +12,7 @@ class BlogPost(db.Model):
     creation_timestamp = db.Column(db.String, default=datetime.utcnow)
     
 
-class BlogPostSchema(ma.ModelSchema):
+class BlogPostSchema(ma.Schema):
     class Meta:
         model = BlogPost
         sqla_session = db.session
