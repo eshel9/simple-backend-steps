@@ -6,10 +6,6 @@ from sqlalchemy import func
 from configuration import get_posts_size
 
 
-def get_timestamp():
-    return datetime.now().strftime(("%Y-%m-%d %H:%M:%S"))
-
-
 # handler for POST /post
 def create_new_post(blogpost):
     """
@@ -54,7 +50,9 @@ def get_number_of_posts():
     Responds to a request for GET /postsnumber
     :return:        number of posts in the system
     """
-    number_of_posts = BlogPost.query(func.count(BlogPost.id))
+    print("entering get number of posts function")
+    query_result = db.session.query(func.count(BlogPost.id)).first()
+    number_of_posts = query_result[0]
     print("number of posts:", number_of_posts)
     return make_response(
         f"there are currently {number_of_posts} posts in the system", 200

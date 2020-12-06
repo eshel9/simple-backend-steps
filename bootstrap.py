@@ -9,6 +9,7 @@ flask_app = None
 swagger_app = None
 db = None
 
+
 def initialize_backend():
     global basedir
     global flask_app
