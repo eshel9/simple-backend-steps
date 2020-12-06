@@ -8,6 +8,7 @@ basedir = ""
 flask_app = None
 db = None
 ma = None
+dbname = 'blogposts.db'
 
 
 def initialize_backend():
@@ -15,6 +16,7 @@ def initialize_backend():
     global flask_app
     global db
     global ma
+    global dbname
 
     basedir = os.path.abspath('.')
 
@@ -23,7 +25,7 @@ def initialize_backend():
 
     flask_app.config['SQLALCHEMY_ECHO'] = True
     flask_app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////' + \
-        os.path.join(basedir, 'blogposts.db')
+        os.path.join(basedir, dbname)
     flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     db = SQLAlchemy(flask_app)
