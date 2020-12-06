@@ -31,3 +31,6 @@ def initialize_backend():
     db = SQLAlchemy(flask_app)
 
     ma = Marshmallow(flask_app)
+
+
+initialize_backend()
