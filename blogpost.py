@@ -2,9 +2,10 @@ from datetime import datetime
 from flask import make_response, abort
 from bootstrap import db
 from models.blogpost_model import BlogPost, BlogPostSchema
-from sqlalchemy import func
+from sqlalchemy import func, desc
 from utils import static_var
-from configuration import get_posts_size
+from configuration import get_posts_size, top_creators_limit
+import json
 
 
 # handler for POST /post
@@ -43,13 +44,10 @@ def get_bunch_of_posts():
     blogposts_query = blogposts_query.offset(get_bunch_of_posts.current_offset)
     blogposts = blogposts_query.all()
 
-    for i in blogposts:
-        print(i, i.id, i.title, i.creator, i.body)
-
     # TODO currently sends all posts, send only a bunch
     blogpost_schema = BlogPostSchema(many=True)
     data = blogpost_schema.dump(blogposts)
-    print(data)
+
     return data
 
 
@@ -67,4 +65,29 @@ def get_number_of_posts():
 def number_of_posts():
     query_result = db.session.query(func.count(BlogPost.id)).first()
     return int(query_result[0])
+
+
+# handler for GET /postsnumber
+def get_top_creators():
+    """
+    Responds to a request for GET /postsnumber
+    :return:        number of posts in the system
+    """
+    query = db.session.query(BlogPost.creator, func.count(BlogPost.creator))
+    query = query.group_by(BlogPost.creator)
+    query = query.order_by(desc(func.count(BlogPost.creator)))
+    query_results = query.limit(top_creators_limit).all()
+
+    # turn results from a list of values to a list of dictionaries with
+    # titles to each value, same format as with posts
+    results = []
+    for query_result in query_results:
+        results += [{"creator": query_result[0],
+                    "number_of posts:": query_result[1]}]
+
+    data = json.dumps(results, indent=4)
+
+    return make_response(
+        data, 200
+    )
 
