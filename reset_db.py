@@ -1,8 +1,13 @@
 #! ./backend-env/bin/python
 import os
-from config import db, dbname
+from config import initialize_backend
+
+initialize_backend()
+
 from models.blogpost_model import BlogPost
 from models.stats_model import RuntimeStats
+from config import db, dbname
+
 
 BASE_POSTS = [
     {'title': 'title1', 'body': 'body1', 'creator': 'creator1'},
