@@ -1,7 +1,8 @@
-from flask import Flask
+from flask import Flask, render_template
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
+
 
 @app.route('/')
-def hello():
-    return "testing"
+def home():
+    return render_template('home.html')
