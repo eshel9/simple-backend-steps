@@ -1,5 +1,5 @@
 from datetime import datetime
-from config import db, ma
+from bootstrap import db, ma
 
 
 class BlogPost(db.Model):

@@ -1,4 +1,4 @@
-from config import db, ma
+from bootstrap import db, ma
 
 
 class RuntimeStats(db.Model):

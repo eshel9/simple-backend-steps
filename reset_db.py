@@ -1,12 +1,12 @@
 #! ./backend-env/bin/python
 import os
-from config import initialize_backend
+from bootstrap import initialize_backend
 
 initialize_backend()
 
 from models.blogpost_model import BlogPost
 from models.stats_model import RuntimeStats
-from config import db, dbname
+from bootstrap import db, dbname
 
 
 BASE_POSTS = [
