@@ -6,7 +6,8 @@ initialize_backend()
 
 from models.blogpost_model import BlogPost
 from models.stats_model import RuntimeStats
-from bootstrap import db, dbname
+from bootstrap import db
+from configuration import dbname
 
 
 BASE_POSTS = [
@@ -40,3 +41,5 @@ for post in BASE_RUNTIMES:
     db.session.add(runtime_object)
 
 db.session.commit()
+
+db.session.query
