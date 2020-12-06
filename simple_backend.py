@@ -1,3 +1,5 @@
+#! ./backend-env/bin/python
+
 from flask import render_template
 import connexion
 
@@ -10,6 +12,9 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/test')
 def test():
     return 'testing'
+
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000, debug=True)
