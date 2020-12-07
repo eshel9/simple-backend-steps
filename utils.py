@@ -3,5 +3,3 @@ def static_var(varname, value):
         setattr(func, varname, value)
         return func
     return decorate
-
-

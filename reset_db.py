@@ -20,7 +20,7 @@ BASE_POSTS = [
 BASE_RUNTIMES = [
     {'function_name': 'create_new_post', 'runtime_avg': 0, 'call_times':
         0},
-    {'function_name': 'get_number_of_posts', 'runtime_avg': 0, 'call_times':
+    {'function_name': 'get_bunch_of_posts', 'runtime_avg': 0, 'call_times':
         0},
 ]
 

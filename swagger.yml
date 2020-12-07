@@ -93,3 +93,21 @@ paths:
                   type: "string"
                 number_of_posts:
                   type: "integer"
+  /runtimestats:
+    get:
+      summary: "Returns the average runtime of the two basic functions of this API"
+      description: "average runtime of two functions"
+      operationId: "runtimestats.get_runtime_stats"
+      tags:
+        - "Statistics"
+      responses:
+        "200":
+          description: "array containing the name and average runtime for each function"
+          schema:
+            type: "array"
+            items:
+              properties:
+                function_name:
+                  type: "string"
+                average_runtime:
+                  type: "number"
