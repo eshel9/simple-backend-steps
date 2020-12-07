@@ -16,8 +16,8 @@ paths:
   /post:
     post:
       summary: "Creates a new blogpost."
-      description: "TODO"
-      operationId: "blogpost.create_new_post"
+      description: "expects a json containing the fields of the blogspot"
+      operationId: "api.blogpost.create_new_post"
       tags:
           - "Blogposts"
       parameters:
@@ -42,9 +42,9 @@ paths:
           description: "Successful"
   /posts:
     get:
-      summary: "Currently returns all blogposts, for testing."
-      description: "TODO each call, should return the next bunch of posts, sorted by date."
-      operationId: "blogpost.get_bunch_of_posts"
+      summary: "Returns the next bunch of posts, sorted by date."
+      description: "Returns to the beginning after all posts have been gone through"
+      operationId: "api.blogpost.get_bunch_of_posts"
       tags:
           - "Blogposts"
       responses:
@@ -66,7 +66,7 @@ paths:
     get:
       summary: "Returns the total number of posts saved in the system"
       description: "count number of posts"
-      operationId: "blogpost.get_number_of_posts"
+      operationId: "api.blogpost.get_number_of_posts"
       tags:
           - "Statistics"
       responses:
@@ -79,7 +79,7 @@ paths:
     get:
       summary: "Returns the 10 creators with the most posts"
       description: "Top 10 creators"
-      operationId: "blogpost.get_top_creators"
+      operationId: "api.blogpost.get_top_creators"
       tags:
         - "Blogposts"
       responses:
@@ -97,7 +97,7 @@ paths:
     get:
       summary: "Returns the average runtime of the two basic functions of this API"
       description: "average runtime of two functions"
-      operationId: "runtimestats.get_runtime_stats"
+      operationId: "api.runtimestats.get_runtime_stats"
       tags:
         - "Statistics"
       responses:
