@@ -81,7 +81,7 @@ paths:
       description: "Top 10 creators"
       operationId: "blogpost.get_top_creators"
       tags:
-        - "Statistics"
+        - "Blogposts"
       responses:
         "200":
           description: "array containing the name and number of posts for each creator"

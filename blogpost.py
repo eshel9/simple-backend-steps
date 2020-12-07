@@ -79,7 +79,7 @@ def get_top_creators():
     query = query.order_by(desc(func.count(BlogPost.creator)))
     query_results = query.limit(top_creators_limit).all()
 
-    # turn results from a list of values to a list of dictionaries with
+    # convert results from a list of values to a list of dictionaries with
     # titles to each value, same format as with posts
     results = []
     for query_result in query_results:
