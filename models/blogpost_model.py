@@ -10,7 +10,7 @@ class BlogPost(db.Model):
     title = db.Column(db.String)
     body = db.Column(db.String)
     creator = db.Column(db.String)
-    creation_timestamp = db.Column(db.String, default=datetime.utcnow)
+    creation_timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 
 
 class BlogPostSchema(SQLAlchemyAutoSchema):
