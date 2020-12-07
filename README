@@ -1,0 +1,10 @@
+Installation:
+Currently, Installation can only be done manually
+Pip Dependencies:
+    - flask
+    - connexion[swagger-ui]
+    - Flask-SQLAlchemy
+    - flask-marshmallow
+    - marshmallow-sqlalchemy
+
+Before running for the first time, create the DB with ./reset_db.py

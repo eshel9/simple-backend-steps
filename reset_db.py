@@ -7,7 +7,7 @@ initialize_backend()
 from models.blogpost_model import BlogPost
 from models.stats_model import RuntimeStats
 from bootstrap import db
-from configuration import dbname
+from project_configuration.configuration import dbname
 
 
 BASE_POSTS = [

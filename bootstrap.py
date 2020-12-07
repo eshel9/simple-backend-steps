@@ -1,7 +1,7 @@
 import connexion
 import os
 from flask_sqlalchemy import SQLAlchemy
-from configuration import dbname
+from project_configuration.configuration import dbname
 
 # variables to export:
 basedir = ""
@@ -27,4 +27,4 @@ def initialize_backend():
     flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     db = SQLAlchemy(flask_app)
-    swagger_app.add_api('swagger.yml')
+    swagger_app.add_api('api_configuration.yml')

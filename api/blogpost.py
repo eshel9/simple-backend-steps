@@ -3,7 +3,7 @@ from bootstrap import db
 from models.blogpost_model import BlogPost, BlogPostSchema
 from sqlalchemy import func, desc
 from utils import static_var
-from configuration import get_posts_size, top_creators_limit
+from project_configuration.configuration import get_posts_size, top_creators_limit
 from api.runtimestats import RuntimeRecorder
 import json
 
@@ -12,7 +12,7 @@ import json
 def create_new_post(blogpost):
     """
     Creates new blogpost based on user's request for POST /blogsposts
-    Note that input validation is done automatically by swagger, by the standards defined in swagger.yml
+    Note that input validation is done automatically by swagger, by the standards defined in api_configuration.yml
     """
     with RuntimeRecorder('create_new_post'):
         schema = BlogPostSchema()

@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   title: Basic API for blog posts!
   description: Base api specification for what will become our posts application
-  version: 0.0.1
+  version: 1.0.0
 
 consumes:
     - "application/json"
