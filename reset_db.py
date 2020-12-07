@@ -9,7 +9,6 @@ from models.stats_model import RuntimeStats
 from bootstrap import db
 from project_configuration.configuration import dbname
 
-
 BASE_POSTS = [
     {'title': 'title1', 'body': 'body1', 'creator': 'creator1'},
     {'title': 'title2', 'body': 'body2', 'creator': 'creator2'},

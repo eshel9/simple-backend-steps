@@ -23,8 +23,8 @@ def initialize_backend():
 
     flask_app.config['SQLALCHEMY_ECHO'] = True
     flask_app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////' + \
-        os.path.join(basedir, dbname)
+                                                  os.path.join(basedir, dbname)
     flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     db = SQLAlchemy(flask_app)
-    swagger_app.add_api('api_configuration.yml')
+    swagger_app.add_api('project_configuration/api_configuration.yml')

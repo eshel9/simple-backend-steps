@@ -7,4 +7,11 @@ Pip Dependencies:
     - flask-marshmallow
     - marshmallow-sqlalchemy
 
-Before running for the first time, create the DB with ./reset_db.py
+
+Usage:
+Before running for the first time, create the DB with:
+    ./reset_db.py
+Then, run with:
+    ./run.py
+To interact with the api, navigate to:
+    http://localhost:5000/ui/

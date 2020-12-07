@@ -9,7 +9,7 @@ class RuntimeStats(db.Model):
     function_name = db.Column(db.String)
     runtime_avg = db.Column(db.Float)
     call_times = db.Column(db.Integer)
-    
+
 
 class RuntimeStatsSchema(SQLAlchemyAutoSchema):
     class Meta:

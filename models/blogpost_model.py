@@ -11,7 +11,7 @@ class BlogPost(db.Model):
     body = db.Column(db.String)
     creator = db.Column(db.String)
     creation_timestamp = db.Column(db.String, default=datetime.utcnow)
-    
+
 
 class BlogPostSchema(SQLAlchemyAutoSchema):
     class Meta:

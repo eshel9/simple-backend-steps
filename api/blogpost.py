@@ -4,7 +4,7 @@ from models.blogpost_model import BlogPost, BlogPostSchema
 from sqlalchemy import func, desc
 from utils import static_var, number_of_posts
 from project_configuration.configuration import get_posts_size, top_creators_limit
-from api.runtimestats import RuntimeRecorder
+from helper_classes.runtime_recorder import RuntimeRecorder
 import json
 
 
